@@ -17,7 +17,7 @@ export default function Foods() {
   const recommended = data.filter((item) => item.IsRecommended == true);
 
   return (
-    <div className="py-10 px-5 md:px-10 xl:px-0">
+    <div className="py-10 px-5 md:px-10 xl:px-0 mb-20">
       <div>
         <h2 className="text-3xl font-semibold mb-5">Popular</h2>
         <FoodSlider data={popular} />

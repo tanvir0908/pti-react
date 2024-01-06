@@ -74,7 +74,7 @@ export default function FoodSlider({ data }) {
               className="space-y-2 cursor-pointer hover:text-secondary duration-500"
             >
               <img
-                className="h-[20rem] rounded-xl w-full object-cover"
+                className="h-[16rem] md:h-[18rem] lg:h-[20rem] rounded-xl w-full object-cover"
                 src={food.ImageUrl}
                 alt=""
               />
