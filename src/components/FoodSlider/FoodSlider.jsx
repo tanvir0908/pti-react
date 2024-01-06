@@ -6,29 +6,29 @@ import "slick-carousel/slick/slick-theme.css";
 import { FaAngleLeft, FaAngleRight } from "react-icons/fa6";
 import "./FoodSlider.css";
 
+// modified navigation buttons
+const CustomPrevArrow = ({ onClick }) => {
+  return (
+    <button
+      className="absolute -top-14 right-6 z-10 p-2 rounded-full"
+      onClick={onClick}
+    >
+      <FaAngleLeft className="text-gray-600 text-2xl" />
+    </button>
+  );
+};
+const CustomNextArrow = ({ onClick }) => {
+  return (
+    <button
+      className="absolute -top-14 right-0 z-10 p-2 rounded-full"
+      onClick={onClick}
+    >
+      <FaAngleRight className="text-gray-600 text-2xl" />
+    </button>
+  );
+};
+
 export default function FoodSlider({ data }) {
-  const CustomPrevArrow = ({ onClick }) => {
-    return (
-      <button
-        className="absolute -top-14 right-10 z-10 p-2 hover:bg-white rounded-full"
-        onClick={onClick}
-      >
-        <FaAngleLeft className="text-secondary text-2xl" />
-      </button>
-    );
-  };
-
-  const CustomNextArrow = ({ onClick }) => {
-    return (
-      <button
-        className="absolute -top-14 right-0 z-10 p-2 hover:bg-white rounded-full"
-        onClick={onClick}
-      >
-        <FaAngleRight className="text-secondary text-2xl" />
-      </button>
-    );
-  };
-
   const settings = {
     dots: false,
     infinite: true,
@@ -71,10 +71,10 @@ export default function FoodSlider({ data }) {
           {data.map((food) => (
             <div
               key={food.Id}
-              className="space-y-2 cursor-pointer hover:text-secondary duration-500"
+              className="space-y-2 cursor-pointer hover:text-secondary duration-500 -z-10"
             >
               <img
-                className="h-[16rem] md:h-[18rem] lg:h-[20rem] rounded-xl w-full object-cover"
+                className="h-[16rem] z-0 md:h-[18rem] lg:h-[20rem] rounded-xl w-full object-cover"
                 src={food.ImageUrl}
                 alt=""
               />
