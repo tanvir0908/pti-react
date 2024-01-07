@@ -68,9 +68,9 @@ export default function FoodSlider({ data }) {
     <div>
       <div className="w-full">
         <Slider {...settings}>
-          {data.map((food) => (
+          {data.map((food, index) => (
             <div
-              key={food.Id}
+              key={index}
               className="space-y-2 cursor-pointer hover:text-secondary duration-500 -z-10"
             >
               <img

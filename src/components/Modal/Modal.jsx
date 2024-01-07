@@ -4,7 +4,7 @@ import { useForm } from "react-hook-form";
 import toast from "react-hot-toast";
 import { IoClose } from "react-icons/io5";
 
-export default function Modal({ onClose }) {
+export default function Modal({ onClose, parentFunction }) {
   const {
     register,
     handleSubmit,
@@ -14,8 +14,19 @@ export default function Modal({ onClose }) {
 
   const onSubmit = (data) => {
     console.log(data);
-    toast.success("Form submitted successfully");
+    console.log(data);
+    const newData = {
+      Name: data.Name,
+      ImageUrl: data.ImageUrl,
+      Price: Number(data.Price),
+      IsPopular: data.IsPopular,
+      IsRecommended: data.IsRecommended,
+    };
+    console.log(newData);
+    parentFunction(newData);
+    toast.success("Item added successfully");
     reset();
+    onClose();
   };
 
   return (
@@ -34,13 +45,13 @@ export default function Modal({ onClose }) {
                 Item Name<span className="text-red-500">*</span>
               </span>
               <input
-                {...register("name", { required: true })}
+                {...register("Name", { required: true })}
                 type="text"
-                name="name"
+                name="Name"
                 placeholder="Enter item name"
                 className="px-4 py-3 rounded-xl font-medium outline-none"
               />
-              {errors.name && (
+              {errors.Name && (
                 <span className="text-center text-red-500 mt-2 font-medium">
                   This field is required
                 </span>
@@ -51,13 +62,13 @@ export default function Modal({ onClose }) {
                 Photo URL<span className="text-red-500">*</span>
               </span>
               <input
-                {...register("photo", { required: true })}
+                {...register("ImageUrl", { required: true })}
                 type="text"
-                name="photo"
+                name="ImageUrl"
                 placeholder="Enter item photo URL"
                 className="px-4 py-3 rounded-xl font-medium outline-none border-2 border-primary"
               />
-              {errors.photo && (
+              {errors.ImageUrl && (
                 <span className="text-center text-red-500 mt-2  font-medium">
                   This field is required
                 </span>
@@ -68,13 +79,13 @@ export default function Modal({ onClose }) {
                 Price<span className="text-red-500">*</span>
               </span>
               <input
-                {...register("price", { required: true })}
+                {...register("Price", { required: true })}
                 type="number"
-                name="price"
+                name="Price"
                 placeholder="Enter price"
                 className="px-4 py-3 rounded-xl font-medium outline-none border-2 border-primary"
               />
-              {errors.price && (
+              {errors.Price && (
                 <span className="text-center text-red-500 mt-2  font-medium">
                   This field is required
                 </span>
@@ -85,14 +96,14 @@ export default function Modal({ onClose }) {
                 Popular<span className="text-red-500">*</span>
               </span>
               <select
-                defaultValue={"default"}
-                {...register("isPopular", { required: true })}
+                defaultValue={""}
+                {...register("IsPopular", { required: true })}
                 className="px-4 py-3 rounded-xl font-medium outline-none border-2 border-primary"
               >
                 <option value="true">Yes</option>
                 <option value="false">No</option>
               </select>
-              {errors.isPopular && (
+              {errors.IsPopular && (
                 <span className="text-center text-red-500 mt-2 font-medium">
                   This field is required
                 </span>
@@ -103,21 +114,21 @@ export default function Modal({ onClose }) {
                 Recommended<span className="text-red-500">*</span>
               </span>
               <select
-                defaultValue={"default"}
-                {...register("isRecommended", { required: true })}
+                defaultValue={""}
+                {...register("IsRecommended", { required: true })}
                 className="px-4 py-3 rounded-xl font-medium outline-none border-2 border-primary"
               >
                 <option value="true">Yes</option>
                 <option value="false">No</option>
               </select>
-              {errors.isRecommended && (
+              {errors.IsRecommended && (
                 <span className="text-center text-red-500 mt-2 font-medium">
                   This field is required
                 </span>
               )}
             </div>
-            <div className="form-control mt-6 ">
-              <button className="bg-primary text-white w-full font-semibold py-3 rounded-xl border-2 border-white">
+            <div className="mt-6 ">
+              <button className="bg-primary w-full font-semibold py-3 rounded-xl border-2 border-black">
                 Add Item
               </button>
             </div>
