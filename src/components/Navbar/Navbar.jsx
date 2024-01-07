@@ -8,7 +8,7 @@ export default function Navbar() {
   return (
     <div className="flex items-center justify-between py-10 px-5 md:px-10 lg:px-0">
       <div>
-        <h2 className="text-black font-secondary text-3xl md:text-4xl font-semibold">
+        <h2 className="text-black font-secondary text-3xl md:text-4xl font-extrabold">
           pti<span className="text-secondary">.</span>
         </h2>
       </div>

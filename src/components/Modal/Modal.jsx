@@ -13,8 +13,6 @@ export default function Modal({ onClose, parentFunction }) {
   } = useForm();
 
   const onSubmit = (data) => {
-    console.log(data);
-    console.log(data);
     const newData = {
       Name: data.Name,
       ImageUrl: data.ImageUrl,
@@ -22,7 +20,6 @@ export default function Modal({ onClose, parentFunction }) {
       IsPopular: data.IsPopular,
       IsRecommended: data.IsRecommended,
     };
-    console.log(newData);
     parentFunction(newData);
     toast.success("Item added successfully");
     reset();

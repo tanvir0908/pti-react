@@ -38,9 +38,7 @@ export default function Foods() {
           />
         )}
         <div className="flex items-center justify-between mr-[6rem]">
-          <h2 className="text-3xl font-semibold mb-5">
-            Popular: {popular.length}
-          </h2>
+          <h2 className="text-3xl font-bold mb-5">Popular</h2>
           <button
             onClick={() => setModal(true)}
             className="text-lg hidden lg:block font-semibold mb-4 text-secondary "
@@ -58,9 +56,7 @@ export default function Foods() {
           />
         )}
         <div className="flex items-center justify-between mr-[6rem]">
-          <h2 className="text-3xl font-semibold mb-5">
-            Recommended: {recommended.length}
-          </h2>
+          <h2 className="text-3xl font-bold mb-5">Recommended</h2>
           <button
             onClick={() => setModal(true)}
             className="text-lg font-semibold mb-4 hidden lg:block text-secondary "
