@@ -12,7 +12,12 @@ export default function Foods() {
       .get(
         "http://www.api.technicaltest.quadtheoryltd.com/api/Item?page=1&pageSize=10"
       )
-      .then((data) => setData(data.data.Items));
+      .then((response) => {
+        setData(response.data.Items);
+      })
+      .catch((error) => {
+        console.log(error);
+      });
   }, []);
 
   const popular = data.filter(
@@ -23,9 +28,7 @@ export default function Foods() {
   );
 
   const parentFunction = (newData) => {
-    console.log(newData);
     data.push(newData);
-    console.log(data);
   };
 
   return (
